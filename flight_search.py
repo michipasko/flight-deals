@@ -77,6 +77,7 @@ class FlightSearch:
         )
 
         data = response.json()
+        print(data)
         #print(data)
         if len(data["data"]) > 0:
             cheapest_flight = self.get_cheapest_flight(

@@ -8,6 +8,8 @@ dotenv.load_dotenv()
 
 ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+FROM_NUMBER = os.getenv("TWILIO_NUMBER")
+
 print(ACCOUNT_SID)
 print(AUTH_TOKEN)
 
@@ -28,9 +30,8 @@ class NotificationManager:
 
         message = client.messages.create(
             body=message_text,
-            from_='+14099787901',
-
-            to='+491732714068'
+            from_=FROM_NUMBER,
+            to=message_to
         )
 
         print(message.sid)
